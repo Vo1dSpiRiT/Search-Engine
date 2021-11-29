@@ -2,7 +2,7 @@ import os
 
 path = ["C:", ""]
 
-def display(directories):
+def displayDir(directories):
     print(f"|------------|")
     for i, file in enumerate(directories):
         print(f"{i+1}_{file}")
@@ -50,7 +50,7 @@ def main():
             if userInput[0].lower() == "quit":
                 return False
             elif userInput[0].lower() == "dir":
-                display(directories)
+                displayDir(directories)
             elif userInput[0].lower() == "search":
                 print("ERROR: Search [File Name]")
             elif userInput[0].lower() == "cd":
