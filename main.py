@@ -14,23 +14,22 @@ def getDirectories(path):
 def getFiles(path):
     return [dir for dir in os.listdir("/".join(path)) if not(os.path.isdir("/".join(path) + dir + "/"))]
 
-def search(target, currentPath):
+def search(target, path):
     try:
-        files = getFiles(currentPath)
-        directories = getDirectories(currentPath)
+        files = getFiles(path)
+        directories = getDirectories(path)
     except:
         return []
     results = []
     for file in files:
         if target in file.lower():
-            results.append({"Name": file, "Type": "File", "Path": "/".join(currentPath)})
+            results.append({"Name": file, "Type": "File", "Path": "/".join(path)})
     for dir in directories:
         if target in dir.lower():
-            results.append({"Name": dir, "Type": "Folder", "Path": "/".join(currentPath)})
-        nextPath = currentPath
-        nextPath.insert(len(nextPath)-1, dir)
-        results.extend(search(target, nextPath))
-        currentPath.pop(len(currentPath)-2)
+            results.append({"Name": dir, "Type": "Folder", "Path": "/".join(path)})
+        path.insert(len(path)-1, dir)
+        results.extend(search(target, path))
+        path.pop(len(path)-2)
     return results
 
 def displaySearchResults(results):
