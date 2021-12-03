@@ -1,8 +1,8 @@
 # Search-Engine
 
-How to use:
-"dir" list directory content
-"cd [File ID]" change directory
-"cd" go back
-"search [File Name]" search for File in current directory
+## How to use:<br />
+"dir" list directory content<br />
+"cd [File ID]" change directory<br />
+"cd" go back<br />
+"search [File Name]" search for File in current directory<br />
 "quit" exit program
